@@ -5,11 +5,12 @@ import Equipo from './equipo';
 
 
 export default function Header() {
+  const equipos = ["Equipo 1", "Equipo 2", "Equipo 3 ", "Equipo 4"];
   return (
       <View style={styles.headerStyle}>
-        <Equipo nombre="Equipo 1"></Equipo>
-        <Equipo nombre="Equipo 2"></Equipo>
-        <Equipo nombre="Equipo 3"></Equipo>
+        {equipos.map((equipo) =>(
+          <Equipo nombre={equipo}></Equipo>
+          ))}
       </View>
   );
 }

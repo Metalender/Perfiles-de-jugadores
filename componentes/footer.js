@@ -3,10 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Pressable, Image } from 'react-native';
 
 export default function Footer() {
+  const pagina = "www.jugadores.com"
+  const numeroTelefono = "123456789"
     return (
         <View style={styles.footerStyle}>
-            <Text style={styles.footerTexto}>www.equipo.com</Text>
-            <Text style={styles.footerTexto}>123456789</Text>
+            <Text style={styles.footerTexto}>{pagina}</Text>
+            <Text style={styles.footerTexto}>{numeroTelefono}</Text>
         </View>
     );
   }
