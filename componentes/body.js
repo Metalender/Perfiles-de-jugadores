@@ -1,17 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Pressable, Image } from 'react-native';
 import Aside from './aside';
 import Imagen from './image';
 
 
-export default function Body() {
-  return (
+export default class Body extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+          jugadorSeleccionado: "Jugador1"
+    }
+  }
+
+ 
+jugadorSeleccionado = (jugador) => {
+  this.setState({ jugadorSeleccionado: jugador });
+  console.log("jugador", jugador)
+}
+
+  render() {
+    const { equipoSeleccionado } = this.props;
+    const { jugadorSeleccionado } = this.state;
+
+
+    return (
       <View style={styles.bodyStyle}>
-        <Aside></Aside> 
-        <Imagen></Imagen>
+        <Aside equipoSeleccionado={equipoSeleccionado} jugadorSeleccionado={this.jugadorSeleccionado}/>
+        <Imagen jugadorSeleccionado={jugadorSeleccionado}/>
       </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({

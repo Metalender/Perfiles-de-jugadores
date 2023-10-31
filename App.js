@@ -6,15 +6,34 @@ import Body from './componentes/body';
 import Imagen from './componentes/image';
 import Aside from './componentes/aside';
 import Footer from './componentes/footer';
+import { Component } from 'react';
 
-export default function App() {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        equipoSeleccionado: 'Equipo1',
+    };
+}
+
+
+EquipoSeleccionado = (equipo) => {
+  this.setState({ equipoSeleccionado: equipo });
+  console.log("equipo", equipo);
+}
+
+  
+render() {
+  const { equipoSeleccionado } = this.state;
+
   return (
-    <View style={styles.container}>
-      <Header></Header>
-      <Body></Body>
-      <Footer></Footer>
-    </View>
+      <View style={styles.container}>
+          <Header EquipoSeleccionado={this.EquipoSeleccionado} />
+          <Body equipoSeleccionado={equipoSeleccionado} />
+          <Footer />
+      </View>
   );
+}
 }
 
 const styles = StyleSheet.create({

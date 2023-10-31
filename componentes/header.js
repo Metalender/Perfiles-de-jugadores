@@ -1,19 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react'
 import { StyleSheet, Text, View, Button, Pressable, Image } from 'react-native';
 import Equipo from './equipo';
 
 
-export default function Header() {
-  const equipos = ["Equipo 1", "Equipo 2", "Equipo 3 ", "Equipo 4"];
-  return (
-      <View style={styles.headerStyle}>
-        {equipos.map((equipo) =>(
-          <Equipo nombre={equipo}></Equipo>
-          ))}
-      </View>
-  );
+
+class Header extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          equipos: ['Equipo1', 'Equipo2', 'Equipo3'],
+      };
+  }
+
+  render() {
+      const { EquipoSeleccionado } = this.props;
+      const { equipos } = this.state;
+
+      return (
+          <View style={styles.headerStyle}>
+              {equipos.map((equip, index) => {
+                  return (
+                      <Equipo key={index} nombre={equip} EquipoSeleccionado={EquipoSeleccionado} />
+                  )
+              })}
+          </View>
+      );
+  }
 }
+
+export default Header
 
 const styles = StyleSheet.create({
   headerStyle: {
