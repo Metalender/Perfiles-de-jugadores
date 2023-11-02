@@ -14,21 +14,21 @@ class Header extends Component {
   }
 
   render() {
-      const { EquipoSeleccionado } = this.props;
+      const { EquipoSeleccionado, equipoSeleccionado } = this.props;
       const { equipos } = this.state;
 
       return (
           <View style={styles.headerStyle}>
               {equipos.map((equip, index) => {
                   return (
-                      <Equipo key={index} nombre={equip} EquipoSeleccionado={EquipoSeleccionado} />
+                      <Equipo key={index} nombre={equip} EquipoSeleccionado={EquipoSeleccionado} equipoSeleccionado={equipoSeleccionado}/>
+                      
                   )
               })}
           </View>
       );
   }
 }
-
 export default Header
 
 const styles = StyleSheet.create({

@@ -26,7 +26,7 @@ jugadorSeleccionado = (jugador) => {
 
     return (
       <View style={styles.bodyStyle}>
-        <Aside equipoSeleccionado={equipoSeleccionado} jugadorSeleccionado={this.jugadorSeleccionado}/>
+        <Aside equipoSeleccionado={equipoSeleccionado} jugadorSeleccionado={this.jugadorSeleccionado} JugadorSeleccionado={this.state.jugadorSeleccionado}/>
         <Imagen jugadorSeleccionado={jugadorSeleccionado}/>
       </View>
     );

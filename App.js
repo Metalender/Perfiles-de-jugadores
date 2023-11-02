@@ -19,7 +19,6 @@ export default class App extends Component {
 
 EquipoSeleccionado = (equipo) => {
   this.setState({ equipoSeleccionado: equipo });
-  console.log("equipo", equipo);
 }
 
   
@@ -28,7 +27,7 @@ render() {
 
   return (
       <View style={styles.container}>
-          <Header EquipoSeleccionado={this.EquipoSeleccionado} />
+          <Header EquipoSeleccionado={this.EquipoSeleccionado} equipoSeleccionado={equipoSeleccionado}/>
           <Body equipoSeleccionado={equipoSeleccionado} />
           <Footer />
       </View>
